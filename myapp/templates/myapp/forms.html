@@ -1,0 +1,35 @@
+{%  extends 'myapp/base.html' %}
+
+{%  block content %}
+<div class="container form-grub" >
+  <br />
+  <div class="row">
+    <div class="col-lg-5">
+       <h5> Masukan Jadwal Acara </h5>
+    </div>
+    <div class="col-lg-5">
+    </div>
+
+    <div class="col-lg-2">
+      <button onclick="window.location='{% url 'calender'  %}'" class="btn btn-primary"> Back Index </button>
+    </div>
+
+  </div>
+
+
+  <br />
+  <form method="POST">
+    {%  csrf_token  %}
+    {%  for field in form %}
+      {{ field.errors }}
+      <label> {{ field.label }} </label>
+      <input placeholder="{{ field.label }}" name="{{ field.name}}" class="form-control" />
+
+    {% endfor %}
+    <br />
+    <button type="submit" class="btn btn-success"> submit</button>
+
+  </form>
+</div>
+
+{%  endblock  %}

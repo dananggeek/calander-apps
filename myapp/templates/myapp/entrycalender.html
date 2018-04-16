@@ -1,0 +1,9 @@
+<div class="col-lg-4">
+  <br />
+  <h4> {{entry.name }}</h4>
+  <!-- y m d-->
+  <h6> Date {{entry.date|date:"y m d" }}</h6>
+  <p> {{entry.description|truncatechars:150 }}</p>
+  <button onclick="window.location='{% url 'details' pk=entry.id  %}'" class="btn btn-primary"> View Detail </button>
+  <button onclick="window.location='{% url 'hapus' id=entry.id  %}'" class="btn btn-danger"> hapus  </button>
+</div>

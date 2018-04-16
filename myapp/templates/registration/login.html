@@ -1,0 +1,21 @@
+{%  extends 'myapp/base.html' %}
+{%  block content  %}
+<div class="container">
+  <form method="POST">
+    <br />
+    <h1> <center>  Login </center></h1>
+    {%  csrf_token %}
+    {%  for field in form %}
+       {{ field.errors }}
+
+       <label> {{field.label }} </label>
+       <input type="{% if field.label == 'Password' %}password{% else %} input {% endif %}"placeholder=" {{field.label}}" name="{{ field.name }}" class="form-control" />
+    {%  endfor  %}
+    <br />
+    <button type="submit" class="btn btn-danger">Login </button>
+    <a href="/signup"> Belum Register ? Register Sekarang </a>
+  </form
+</div>
+
+
+{% endblock %}

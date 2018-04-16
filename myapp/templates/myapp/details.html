@@ -1,0 +1,42 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+        <div class="p-3 align-self-center col-md-12">
+          <div class="card ">
+            <div class="card-header "> {{entry.name}} </div>
+              <div class="card-block p-4">
+              <div class="mb-4 text-right"> Tanggal Acara  {{entry.date  }} </div>
+              <div class=" col-md-12">
+                <div class="row">
+                  <div class="text-center col-1"><i class="text-danger d-block mx-auto fa fa-2x fa-map-marker"></i> </div>
+                  <div class="col-11">
+                    <h5 class="mb-4 text-danger">Lokasi  </h5>
+                    <p class="my-4 text-danger">{{entry.lacations}} </p>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-4 col-md-12">
+               {{entry.description}}
+             </div>
+
+               <div class="mb-4 col-md-3">
+                author by {{entry.author}}
+              </div>
+              <div class="mb-4 col-md-5">
+               publish  {{entry.created}}
+              </div>
+
+
+
+              <button onclick="window.location='{% url 'index' %}' " class="btn btn-dark"> Go Back </button>
+
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{%  extends 'myapp/base.html' %}
+{%  block content  %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-lg-6">
+      Gambar
+    </div><!-- Menutup div lg-->
+    <div class="col-md-6 col-lg-6">
+      <form method="POST">
+        <br />
+        <h1> <center>  signup </center></h1>
+        {%  csrf_token %}
+        {%  for field in form %}
+           {{ field.errors }}
+
+           <label> {{field.label }} </label>
+           <input type="{% if 'password' in field.name %}password{% else %} input {% endif %}"placeholder=" {{field.label}}" name="{{ field.name }}" class="form-control" />
+        {%  endfor  %}
+        <br />
+        <button type="submit" class="btn btn-success">Login </button>
+        <a href="/login"> Belum Register ? Register Sekarang </a>
+      </form>
+    </div><!-- Menutup div lg-->
+  </div> <!-- Menutup div row-->
+</div>  <!-- Menutup div container-->
+{% endblock %}
