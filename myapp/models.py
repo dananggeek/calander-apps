@@ -7,6 +7,7 @@ class Entry(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     date =  models.DateTimeField()
     description = models.TextField()
+    gambar = models.FileField(blank=True ,null=True)
     lacations= models.CharField(max_length=30)
     created = models.DateTimeField(auto_now_add=True)
 

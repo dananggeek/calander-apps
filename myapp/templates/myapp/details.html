@@ -18,6 +18,10 @@
                 </div>
               </div>
               <div class="mb-4 col-md-12">
+                {% if entry.gambar %}
+                 
+                  <img src='{{ entry.gambar.url }}'  alt="..." class="img-thumbnail">
+                {%  endif %}
                {{entry.description}}
              </div>
 

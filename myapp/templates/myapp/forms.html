@@ -18,14 +18,20 @@
 
 
   <br />
-  <form method="POST">
+ 
+  <form method="POST" action="{% url 'add' %}" enctype="multipart/form-data">
     {%  csrf_token  %}
+    {{form.as_p }}
+
+    <!--
     {%  for field in form %}
       {{ field.errors }}
       <label> {{ field.label }} </label>
       <input placeholder="{{ field.label }}" name="{{ field.name}}" class="form-control" />
 
     {% endfor %}
+
+  -->
     <br />
     <button type="submit" class="btn btn-success"> submit</button>
 

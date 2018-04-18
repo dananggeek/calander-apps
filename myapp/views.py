@@ -22,13 +22,14 @@ def details(request, pk):
 @login_required
 def add (request):
     if request.method == 'POST':
-        form =EntryForm(request.POST)
+        form =EntryForm(request.POST , request.FILES or None)
         if form.is_valid():
 
             ###
             name = form.cleaned_data['name']
             date = form.cleaned_data['date']
             description = form.cleaned_data['description']
+            gambar = form.cleaned_data['gambar']
             lacations=form.cleaned_data['lacations']
 
             Entry.objects.create(
@@ -36,6 +37,7 @@ def add (request):
                 name=name,
                 date=date,
                 description=description,
+                gambar=gambar,
                 lacations=lacations,
             ).save()
 
